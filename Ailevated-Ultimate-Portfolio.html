@@ -1,0 +1,960 @@
+<style>body{margin:0}img{display:block;max-width:100%}</style><style>:root{--code-bg:#1e1e2e;--code-fg:#cdd6f4;--code-border:#313244}@media(prefers-color-scheme:light){:root{--code-bg:#eff1f5;--code-fg:#4c4f69;--code-border:#ccd0da}}pre{background:var(--code-bg);color:var(--code-fg);border:1px solid var(--code-border);border-radius:6px;padding:12px 16px;overflow-x:auto;font-size:13px;line-height:1.6;tab-size:4}pre code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;white-space:pre}code:not(pre code){background:rgba(128,128,128,0.15);padding:0.15em 0.4em;border-radius:4px;font-size:0.9em;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace}</style><script>(function(){function S(){var d={};Object.defineProperties(this,{getItem:{value:function(k){return d.hasOwnProperty(k)?d[k]:null}},setItem:{value:function(k,v){var o=d[k]||null;d[k]=String(v);this.length=Object.keys(d).length}},removeItem:{value:function(k){delete d[k];this.length=Object.keys(d).length}},clear:{value:function(){d={};this.length=0}},key:{value:function(i){return Object.keys(d)[i]||null}},length:{value:0,writable:true}})}try{window.localStorage}catch(e){Object.defineProperty(window,'localStorage',{value:new S(),configurable:true})}try{window.sessionStorage}catch(e){Object.defineProperty(window,'sessionStorage',{value:new S(),configurable:true})}var hp=history.pushState;history.pushState=function(){try{hp.apply(history,arguments)}catch(e){}};var hr=history.replaceState;history.replaceState=function(){try{hr.apply(history,arguments)}catch(e){}};try{document.cookie}catch(e){Object.defineProperty(document,'cookie',{get:function(){return ''},set:function(){},configurable:true})}})();</script><script>document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#"]');if(!a)return;e.preventDefault();var id=a.getAttribute('href').slice(1);if(!id)return;var el=document.getElementById(id);if(el){el.scrollIntoView({behavior:'smooth',block:'start'});}try{history.replaceState(null,'','#'+id)}catch(e){}});</script><!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ailevated — Elevate Your Mind. Elevate Your Work.</title>
+<meta name="description" content="Your daily source for AI tools, prompts, workflows, and productivity tips. Join 10,000+ professionals working smarter with AI.">
+<meta name="keywords" content="AI tools, AI prompts, productivity, automation, artificial intelligence, ChatGPT, workflow, tech tips">
+<meta property="og:title" content="Ailevated — AI Tools, Tips & Workflows">
+<meta property="og:description" content="Elevate your work with daily AI tips, curated tools, and automation workflows.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#050508">
+<link rel="manifest" href="manifest.json">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root,[data-theme="dark"]{--bg-primary:#050508;--bg-secondary:#0c0c14;--bg-tertiary:#111119;--accent1:#7c3aed;--accent2:#06d6a0;--accent3:#00b4d8;--accent4:#f72585;--text-primary:#f0f0f5;--text-secondary:#8888a0;--card-bg:rgba(255,255,255,0.02);--card-border:rgba(255,255,255,0.04);--gradient:linear-gradient(135deg,#7c3aed,#06d6a0);--gradient2:linear-gradient(135deg,#f72585,#7c3aed);--gradient3:linear-gradient(135deg,#00b4d8,#06d6a0);--glow-purple:rgba(124,58,237,0.4);--glow-green:rgba(6,214,160,0.3);--nav-bg:rgba(5,5,8,0.92);--shadow:0 20px 60px rgba(0,0,0,0.3)}
+[data-theme="light"]{--bg-primary:#f8f9fc;--bg-secondary:#ffffff;--bg-tertiary:#eef0f5;--text-primary:#1a1a2e;--text-secondary:#5a5a7a;--card-bg:rgba(0,0,0,0.02);--card-border:rgba(0,0,0,0.08);--nav-bg:rgba(248,249,252,0.92);--shadow:0 20px 60px rgba(0,0,0,0.08)}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg-primary);color:var(--text-primary);overflow-x:hidden;line-height:1.6;cursor:none;transition:background .4s,color .4s}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif}
+.gradient-text{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.gradient-text-2{background:var(--gradient2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.gradient-text-3{background:var(--gradient3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* Preloader */
+.preloader{position:fixed;inset:0;background:var(--bg-primary);display:flex;align-items:center;justify-content:center;z-index:99999;transition:opacity .6s,visibility .6s}
+.preloader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.preloader-logo{font-family:'Space Grotesk',sans-serif;font-size:3rem;font-weight:800;animation:pulse-load 1.5s infinite}
+.preloader-logo span{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+@keyframes pulse-load{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(0.95)}}
+
+/* Custom Cursor */
+.cursor{position:fixed;width:20px;height:20px;border:2px solid rgba(124,58,237,0.7);border-radius:50%;pointer-events:none;z-index:99998;transition:transform .15s,width .2s,height .2s,border-color .2s;transform:translate(-50%,-50%)}
+.cursor-dot{position:fixed;width:6px;height:6px;background:var(--accent2);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:transform .08s}
+.cursor.hover{width:40px;height:40px;border-color:var(--accent2);background:rgba(6,214,160,0.05)}
+.cursor-trail{position:fixed;width:4px;height:4px;border-radius:50%;pointer-events:none;z-index:99997;opacity:0.3;background:var(--accent1)}
+
+/* Scroll Progress */
+.scroll-progress{position:fixed;top:0;left:0;height:3px;background:var(--gradient);z-index:10001;width:0%;transition:width .1s linear;border-radius:0 2px 2px 0}
+
+/* Noise Overlay */
+.noise{position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.015;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* Toast Notifications */
+.toast-container{position:fixed;top:20px;right:20px;z-index:99999;display:flex;flex-direction:column;gap:10px}
+.toast{padding:14px 24px;border-radius:12px;background:var(--bg-secondary);border:1px solid var(--card-border);color:var(--text-primary);font-size:.88rem;display:flex;align-items:center;gap:10px;animation:slideIn .3s ease;box-shadow:var(--shadow);backdrop-filter:blur(10px)}
+.toast.success{border-color:rgba(6,214,160,0.3)}
+.toast.info{border-color:rgba(0,180,216,0.3)}
+@keyframes slideIn{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
+
+/* Cookie Banner */
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:var(--bg-secondary);border-top:1px solid var(--card-border);padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;z-index:9990;transform:translateY(100%);transition:transform .4s;flex-wrap:wrap}
+.cookie-banner.visible{transform:translateY(0)}
+.cookie-banner p{font-size:.85rem;color:var(--text-secondary);max-width:600px}
+.cookie-banner button{background:var(--gradient);color:#fff;border:none;padding:10px 24px;border-radius:8px;font-weight:600;cursor:pointer;font-size:.85rem}
+
+/* Exit Intent Popup */
+.exit-popup{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:99990;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.exit-popup.active{display:flex}
+.exit-popup-content{background:var(--bg-secondary);border:1px solid rgba(124,58,237,0.2);border-radius:20px;padding:48px;max-width:450px;text-align:center;position:relative;animation:popIn .3s}
+@keyframes popIn{from{transform:scale(0.8);opacity:0}to{transform:scale(1);opacity:1}}
+.exit-popup-content h3{font-size:1.5rem;margin-bottom:12px}
+.exit-popup-content p{color:var(--text-secondary);margin-bottom:24px;font-size:.9rem}
+.exit-popup-close{position:absolute;top:16px;right:16px;background:none;border:none;color:var(--text-secondary);cursor:pointer;font-size:1.2rem}
+
+/* Sticky CTA Bar */
+.sticky-cta{position:fixed;bottom:-60px;left:0;right:0;background:var(--gradient);padding:12px 24px;display:flex;align-items:center;justify-content:center;gap:16px;z-index:9980;transition:bottom .4s;box-shadow:0 -4px 20px var(--glow-purple)}
+.sticky-cta.visible{bottom:0}
+.sticky-cta p{color:#fff;font-weight:600;font-size:.9rem}
+.sticky-cta button{background:#fff;color:var(--accent1);border:none;padding:8px 20px;border-radius:6px;font-weight:700;cursor:pointer;font-size:.85rem}
+
+/* Daily Tip Modal */
+.daily-tip{position:fixed;bottom:90px;right:24px;background:var(--bg-secondary);border:1px solid rgba(6,214,160,0.2);border-radius:16px;padding:24px;max-width:320px;z-index:9970;display:none;animation:slideUp .4s;box-shadow:var(--shadow)}
+.daily-tip.active{display:block}
+@keyframes slideUp{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+.daily-tip h4{font-size:1rem;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.daily-tip p{color:var(--text-secondary);font-size:.85rem;line-height:1.6}
+.daily-tip .close-tip{position:absolute;top:12px;right:12px;background:none;border:none;color:var(--text-secondary);cursor:pointer}
+
+/* Navbar */
+.navbar{position:fixed;top:0;width:100%;padding:16px 0;z-index:10000;transition:all .3s}
+.navbar.scrolled{background:var(--nav-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--card-border);padding:10px 0}
+.nav-container{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:800;text-decoration:none;letter-spacing:-0.5px;color:var(--text-primary)}
+.logo span{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:28px;align-items:center;list-style:none}
+.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:.85rem;font-weight:500;transition:all .3s;position:relative}
+.nav-links a:hover{color:var(--text-primary)}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gradient);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:14px}
+.theme-toggle{background:none;border:1px solid var(--card-border);color:var(--text-secondary);width:38px;height:38px;border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;font-size:1rem}
+.theme-toggle:hover{border-color:var(--accent1);color:var(--accent1)}
+.search-toggle{background:none;border:1px solid var(--card-border);color:var(--text-secondary);width:38px;height:38px;border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;font-size:.9rem}
+.search-toggle:hover{border-color:var(--accent3);color:var(--accent3)}
+.nav-cta{background:var(--gradient);color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:600;font-size:.83rem;transition:all .3s;box-shadow:0 4px 20px var(--glow-purple)}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 35px var(--glow-purple)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:10001}
+.hamburger span{width:24px;height:2px;background:var(--text-primary);transition:all .3s}
+.mobile-menu{display:none;position:fixed;top:0;right:-100%;width:75%;height:100vh;background:var(--bg-secondary);padding:80px 36px;transition:right .4s cubic-bezier(.25,.8,.25,1);z-index:9999;border-left:1px solid var(--card-border)}
+.mobile-menu.active{right:0}
+.mobile-menu a{display:block;color:var(--text-primary);text-decoration:none;font-size:1.2rem;margin-bottom:24px;font-weight:500}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:9998}
+.overlay.active{display:block}
+
+/* Search Modal */
+.search-modal{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:99995;display:none;align-items:flex-start;justify-content:center;padding-top:120px;backdrop-filter:blur(4px)}
+.search-modal.active{display:flex}
+.search-box{background:var(--bg-secondary);border:1px solid var(--card-border);border-radius:16px;padding:8px;width:90%;max-width:580px;animation:popIn .2s}
+.search-box input{width:100%;padding:16px 20px;background:transparent;border:none;color:var(--text-primary);font-size:1.1rem;outline:none}
+.search-box input::placeholder{color:var(--text-secondary)}
+.search-results{max-height:300px;overflow-y:auto;padding:8px}
+.search-results a{display:block;padding:12px 16px;border-radius:10px;text-decoration:none;color:var(--text-primary);transition:background .2s;font-size:.9rem}
+.search-results a:hover{background:rgba(124,58,237,0.08)}
+.search-results .no-results{padding:16px;color:var(--text-secondary);text-align:center;font-size:.9rem}
+.search-hint{padding:8px 16px;font-size:.75rem;color:var(--text-secondary);border-top:1px solid var(--card-border);margin-top:8px}
+.search-hint kbd{background:rgba(255,255,255,0.05);padding:2px 6px;border-radius:4px;font-family:'JetBrains Mono',monospace;border:1px solid var(--card-border)}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;padding:120px 24px 80px}
+.hero-content{position:relative;z-index:2;max-width:850px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.25);padding:8px 18px;border-radius:50px;font-size:.8rem;color:var(--accent1);margin-bottom:28px;animation:pulse-border 3s infinite}
+@keyframes pulse-border{0%,100%{border-color:rgba(124,58,237,0.25)}50%{border-color:rgba(124,58,237,0.6)}}
+.hero h1{font-size:clamp(2.6rem,7vw,4.8rem);font-weight:800;line-height:1.05;margin-bottom:24px;letter-spacing:-1.5px}
+.hero .typewriter{border-right:3px solid var(--accent1);animation:blink .8s infinite}
+@keyframes blink{0%,100%{border-color:var(--accent1)}50%{border-color:transparent}}
+.hero p{font-size:clamp(1rem,2vw,1.15rem);color:var(--text-secondary);max-width:620px;margin:0 auto 40px;line-height:1.8}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--gradient);color:#fff;padding:15px 34px;border-radius:12px;text-decoration:none;font-weight:700;transition:all .3s;box-shadow:0 6px 30px var(--glow-purple);font-size:.92rem;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer}
+.btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 14px 50px var(--glow-purple)}
+.btn-primary:active{transform:scale(0.96)}
+.btn-outline{border:2px solid rgba(6,214,160,0.4);color:var(--text-primary);padding:15px 34px;border-radius:12px;text-decoration:none;font-weight:700;transition:all .3s;font-size:.92rem;display:inline-flex;align-items:center;gap:8px;background:transparent;cursor:pointer}
+.btn-outline:hover{border-color:var(--accent2);background:rgba(6,214,160,0.06);box-shadow:0 6px 30px var(--glow-green)}
+.btn-outline:active{transform:scale(0.96)}
+.social-proof{margin-top:48px;display:flex;align-items:center;justify-content:center;gap:14px}
+.avatar-stack{display:flex}
+.avatar-stack div{width:36px;height:36px;border-radius:50%;border:2px solid var(--bg-primary);margin-left:-10px;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;color:#fff}
+.avatar-stack div:nth-child(1){background:linear-gradient(135deg,#7c3aed,#06d6a0)}
+.avatar-stack div:nth-child(2){background:linear-gradient(135deg,#f72585,#7c3aed)}
+.avatar-stack div:nth-child(3){background:linear-gradient(135deg,#00b4d8,#06d6a0)}
+.avatar-stack div:nth-child(4){background:linear-gradient(135deg,#7c3aed,#00b4d8)}
+.avatar-stack div:nth-child(5){background:rgba(255,255,255,0.1);border:1px dashed rgba(255,255,255,0.3);color:var(--text-secondary)}
+.social-proof p{color:var(--text-secondary);font-size:.88rem}
+.social-proof strong{color:var(--accent2)}
+.scroll-indicator{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);animation:bounce 2.5s infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);opacity:1}50%{transform:translateX(-50%) translateY(12px);opacity:.4}}
+.scroll-indicator i{color:var(--text-secondary);font-size:1.3rem}
+
+/* Sections */
+.section{padding:100px 0;position:relative;z-index:1}
+.section-title{text-align:center;margin-bottom:60px}
+.section-title h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:12px;letter-spacing:-0.5px}
+.section-title p{color:var(--text-secondary);max-width:500px;margin:0 auto;font-size:.95rem}
+.section-divider{width:50px;height:3px;background:var(--gradient);margin:14px auto 0;border-radius:2px}
+
+/* Pillar Cards with 3D Tilt */
+.pillars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.pillar-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:20px;padding:36px;backdrop-filter:blur(10px);transition:all .4s;position:relative;overflow:hidden;transform-style:preserve-3d;perspective:1000px}
+.pillar-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gradient);opacity:0;transition:opacity .4s}
+.pillar-card:hover{border-color:rgba(124,58,237,0.2);box-shadow:0 25px 60px rgba(124,58,237,0.06)}
+.pillar-card:hover::before{opacity:1}
+.pillar-card .icon{font-size:2.5rem;margin-bottom:18px;display:block}
+.pillar-card h3{font-size:1.15rem;margin-bottom:10px}
+.pillar-card p{color:var(--text-secondary);font-size:.86rem;line-height:1.7}
+
+/* Tools */
+.filter-tabs{display:flex;gap:10px;justify-content:center;margin-bottom:40px;flex-wrap:wrap}
+.filter-tab{padding:8px 20px;border-radius:22px;border:1px solid var(--card-border);background:transparent;color:var(--text-secondary);cursor:pointer;font-size:.82rem;transition:all .3s;font-weight:500}
+.filter-tab.active,.filter-tab:hover{background:var(--gradient);color:#fff;border-color:transparent;box-shadow:0 4px 18px var(--glow-purple)}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px}
+.tool-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:28px;transition:all .4s;position:relative;transform-style:preserve-3d}
+.tool-card:hover{border-color:rgba(6,214,160,0.2);transform:translateY(-4px)}
+.tool-card .tool-header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.tool-card .tool-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.tool-card .tool-icon.writing{background:linear-gradient(135deg,#7c3aed,#a78bfa)}
+.tool-card .tool-icon.design{background:linear-gradient(135deg,#f72585,#ff6b9d)}
+.tool-card .tool-icon.code{background:linear-gradient(135deg,#00b4d8,#06d6a0)}
+.tool-card .tool-icon.marketing{background:linear-gradient(135deg,#f59e0b,#f72585)}
+.tool-card .tool-icon.productivity{background:linear-gradient(135deg,#06d6a0,#00b4d8)}
+.tool-card .tool-name h4{font-size:.95rem;margin-bottom:3px}
+.tool-card .tool-name span{font-size:.7rem;padding:2px 9px;border-radius:10px;font-weight:600}
+.tool-card .tool-name span.writing{background:rgba(124,58,237,0.12);color:#a78bfa}
+.tool-card .tool-name span.design{background:rgba(247,37,133,0.12);color:#ff6b9d}
+.tool-card .tool-name span.code{background:rgba(0,180,216,0.12);color:#00b4d8}
+.tool-card .tool-name span.marketing{background:rgba(245,158,11,0.12);color:#f59e0b}
+.tool-card .tool-name span.productivity{background:rgba(6,214,160,0.12);color:#06d6a0}
+.tool-card p{color:var(--text-secondary);font-size:.83rem;margin-bottom:14px;line-height:1.6}
+.tool-card .stars{color:#fbbf24;font-size:.75rem;margin-bottom:10px}
+.tool-card .tool-actions{display:flex;justify-content:space-between;align-items:center}
+.tool-card .tool-link{color:var(--accent2);text-decoration:none;font-size:.83rem;font-weight:600;display:inline-flex;align-items:center;gap:5px;transition:gap .3s}
+.tool-card .tool-link:hover{gap:10px}
+.tool-card .bookmark-btn{background:none;border:none;color:var(--text-secondary);cursor:pointer;font-size:1rem;transition:color .3s}
+.tool-card .bookmark-btn.active{color:var(--accent4)}
+.tool-card .badge{position:absolute;top:12px;right:12px;font-size:.65rem;padding:3px 9px;border-radius:8px;font-weight:700}
+.tool-card .badge.new{background:rgba(6,214,160,0.15);color:var(--accent2)}
+.tool-card .badge.trending{background:rgba(247,37,133,0.15);color:var(--accent4)}
+.tool-card .badge.hot{background:rgba(245,158,11,0.15);color:#f59e0b}
+
+/* Blog */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.blog-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;overflow:hidden;transition:all .4s}
+.blog-card:hover{border-color:rgba(124,58,237,0.2);transform:translateY(-4px)}
+.blog-card .blog-img{height:180px;position:relative}
+.blog-card .blog-img .category{position:absolute;top:14px;left:14px;background:rgba(5,5,8,0.7);color:#fff;padding:4px 12px;border-radius:12px;font-size:.72rem;backdrop-filter:blur(4px);font-weight:600}
+.blog-card .blog-img .read-time{position:absolute;top:14px;right:14px;background:rgba(5,5,8,0.7);color:var(--text-secondary);padding:4px 10px;border-radius:12px;font-size:.7rem;backdrop-filter:blur(4px)}
+.blog-card .blog-content{padding:22px}
+.blog-card h3{font-size:1.05rem;margin-bottom:8px;line-height:1.4}
+.blog-card .excerpt{color:var(--text-secondary);font-size:.83rem;margin-bottom:14px;line-height:1.6}
+.blog-card .card-footer{display:flex;justify-content:space-between;align-items:center}
+.blog-card .meta-row{color:var(--text-secondary);font-size:.75rem}
+.blog-card .share-btn{background:none;border:none;color:var(--text-secondary);cursor:pointer;transition:color .3s;font-size:.9rem}
+.blog-card .share-btn:hover{color:var(--accent3)}
+
+/* Prompts Library */
+.prompts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.prompt-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:24px;transition:all .3s}
+.prompt-card:hover{border-color:rgba(124,58,237,0.2)}
+.prompt-card .prompt-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.prompt-card .prompt-header h4{font-size:.95rem}
+.prompt-card .prompt-tag{font-size:.7rem;padding:3px 10px;border-radius:10px;background:rgba(124,58,237,0.1);color:var(--accent1);font-weight:600}
+.prompt-card .prompt-text{background:rgba(0,0,0,0.2);border:1px solid var(--card-border);border-radius:10px;padding:16px;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--text-secondary);line-height:1.6;margin-bottom:14px}
+.prompt-card .copy-btn{background:var(--gradient);color:#fff;border:none;padding:8px 18px;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;transition:all .3s;display:flex;align-items:center;gap:6px}
+.prompt-card .copy-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px var(--glow-purple)}
+.prompt-card .copy-btn.copied{background:var(--accent2)}
+
+/* Quiz */
+.quiz-container{max-width:650px;margin:0 auto;background:var(--card-bg);border:1px solid var(--card-border);border-radius:20px;padding:44px;text-align:center}
+.quiz-container h3{font-size:1.3rem;margin-bottom:8px}
+.quiz-container>p{color:var(--text-secondary);margin-bottom:28px;font-size:.9rem}
+.quiz-options{display:grid;gap:12px}
+.quiz-option{padding:16px 20px;border:1px solid var(--card-border);border-radius:12px;cursor:pointer;transition:all .3s;text-align:left;font-size:.9rem;background:transparent;color:var(--text-primary)}
+.quiz-option:hover{border-color:var(--accent1);background:rgba(124,58,237,0.05)}
+.quiz-option.selected{border-color:var(--accent1);background:rgba(124,58,237,0.1)}
+.quiz-progress{display:flex;gap:6px;justify-content:center;margin-bottom:24px}
+.quiz-progress .dot{width:10px;height:10px;border-radius:50%;background:var(--card-border);transition:background .3s}
+.quiz-progress .dot.active{background:var(--accent1)}
+.quiz-progress .dot.done{background:var(--accent2)}
+.quiz-result{display:none;text-align:center}
+.quiz-result h3{margin-bottom:12px}
+.quiz-result .result-card{background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.2);border-radius:14px;padding:24px;margin-top:16px}
+.quiz-result .result-card h4{font-size:1.1rem;margin-bottom:6px}
+.quiz-result .result-card p{color:var(--text-secondary);font-size:.88rem}
+.quiz-nav{display:flex;justify-content:center;gap:12px;margin-top:24px}
+
+/* Steps */
+.steps{display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
+.step{text-align:center;max-width:240px}
+.step-num{width:78px;height:78px;border-radius:50%;background:var(--gradient);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 20px;box-shadow:0 10px 35px var(--glow-purple);position:relative}
+.step-num::after{content:'';position:absolute;inset:-5px;border-radius:50%;border:2px dashed rgba(124,58,237,0.25);animation:spin 15s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.step h3{margin-bottom:8px;font-size:1.05rem}
+.step p{color:var(--text-secondary);font-size:.85rem;line-height:1.6}
+
+/* Stats */
+.stats-section{background:var(--bg-secondary);border-top:1px solid var(--card-border);border-bottom:1px solid var(--card-border)}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:28px;text-align:center;padding:24px 0}
+.stat h3{font-size:clamp(2rem,4vw,3rem);font-weight:800;margin-bottom:6px}
+.stat p{color:var(--text-secondary);font-size:.82rem;font-weight:500}
+
+/* Testimonials */
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px}
+.testimonial-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:30px;transition:all .4s}
+.testimonial-card:hover{border-color:rgba(6,214,160,0.2);transform:translateY(-3px)}
+.testimonial-card .stars{color:#fbbf24;margin-bottom:14px;font-size:.82rem}
+.testimonial-card .quote{color:var(--text-secondary);font-size:.88rem;line-height:1.8;margin-bottom:18px;font-style:italic}
+.testimonial-card .author{display:flex;align-items:center;gap:12px}
+.testimonial-card .author-avatar{width:40px;height:40px;border-radius:50%}
+.testimonial-card .author-info h4{font-size:.87rem;margin-bottom:2px}
+.testimonial-card .author-info p{font-size:.75rem;color:var(--text-secondary)}
+
+/* Pricing */
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:950px;margin:0 auto}
+.pricing-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:20px;padding:38px 30px;text-align:center;transition:all .4s;position:relative}
+.pricing-card.featured{border-color:rgba(124,58,237,0.4);box-shadow:0 0 50px rgba(124,58,237,0.08)}
+.pricing-card.featured::before{content:'MOST POPULAR';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gradient);color:#fff;padding:4px 16px;border-radius:20px;font-size:.68rem;font-weight:700;letter-spacing:1px}
+.pricing-card h3{font-size:1.2rem;margin-bottom:6px}
+.pricing-card .price{font-size:2.8rem;font-weight:800;margin:14px 0 6px}
+.pricing-card .price span{font-size:.9rem;color:var(--text-secondary);font-weight:400}
+.pricing-card .price-desc{color:var(--text-secondary);font-size:.82rem;margin-bottom:24px}
+.pricing-card ul{list-style:none;text-align:left;margin-bottom:28px}
+.pricing-card ul li{padding:9px 0;border-bottom:1px solid var(--card-border);font-size:.85rem;color:var(--text-secondary);display:flex;align-items:center;gap:9px}
+.pricing-card ul li i{color:var(--accent2);font-size:.75rem}
+.pricing-card .btn-price{display:block;padding:13px;border-radius:12px;text-decoration:none;font-weight:700;font-size:.88rem;transition:all .3s;cursor:pointer;border:none}
+.pricing-card .btn-price.primary{background:var(--gradient);color:#fff;box-shadow:0 6px 25px var(--glow-purple)}
+.pricing-card .btn-price.primary:hover{transform:translateY(-2px);box-shadow:0 10px 35px var(--glow-purple)}
+.pricing-card .btn-price.secondary{border:2px solid var(--card-border);color:var(--text-primary);background:transparent}
+.pricing-card .btn-price.secondary:hover{border-color:var(--accent1);background:rgba(124,58,237,0.04)}
+
+/* Resources */
+.resources-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.resource-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:28px;transition:all .4s;text-decoration:none;color:inherit;display:block}
+.resource-card:hover{border-color:rgba(0,180,216,0.2);transform:translateY(-4px)}
+.resource-card .res-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:16px}
+.resource-card h3{font-size:1.05rem;margin-bottom:8px}
+.resource-card p{color:var(--text-secondary);font-size:.83rem;line-height:1.6}
+
+/* FAQ */
+.faq-list{max-width:680px;margin:0 auto}
+.faq-item{border:1px solid var(--card-border);border-radius:12px;margin-bottom:12px;overflow:hidden;transition:border-color .3s}
+.faq-item:hover{border-color:rgba(124,58,237,0.15)}
+.faq-question{padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:.92rem;background:var(--card-bg);transition:background .3s}
+.faq-question:hover{background:rgba(124,58,237,0.03)}
+.faq-question i{color:var(--accent1);transition:transform .3s;font-size:.8rem}
+.faq-item.active .faq-question i{transform:rotate(180deg)}
+.faq-answer{padding:0 24px;max-height:0;overflow:hidden;transition:all .4s;color:var(--text-secondary);font-size:.88rem;line-height:1.7}
+.faq-item.active .faq-answer{padding:0 24px 20px;max-height:300px}
+
+/* Newsletter */
+.newsletter{background:var(--bg-secondary);border-radius:24px;padding:70px 40px;text-align:center;border:1px solid rgba(124,58,237,0.12);position:relative;overflow:hidden}
+.newsletter::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(124,58,237,0.03) 0%,transparent 60%);animation:rotate-bg 25s linear infinite}
+@keyframes rotate-bg{to{transform:rotate(360deg)}}
+.newsletter h2{font-size:clamp(1.7rem,4vw,2.4rem);margin-bottom:14px;position:relative}
+.newsletter>p{color:var(--text-secondary);margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;position:relative;font-size:.92rem}
+.newsletter-form{display:flex;gap:12px;justify-content:center;max-width:460px;margin:0 auto;flex-wrap:wrap;position:relative}
+.newsletter-form input{flex:1;min-width:200px;padding:15px 20px;border-radius:11px;border:1px solid var(--card-border);background:rgba(255,255,255,0.03);color:var(--text-primary);font-size:.92rem;outline:none;transition:all .3s}
+.newsletter-form input:focus{border-color:var(--accent1);box-shadow:0 0 18px rgba(124,58,237,0.12)}
+.newsletter-form button{background:var(--gradient);color:#fff;padding:15px 28px;border-radius:11px;border:none;font-weight:700;cursor:pointer;transition:all .3s;font-size:.92rem;box-shadow:0 4px 18px var(--glow-purple)}
+.newsletter-form button:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--glow-purple)}
+.newsletter .privacy{color:var(--text-secondary);font-size:.75rem;margin-top:16px;position:relative}
+.form-msg{margin-top:12px;font-size:.88rem;display:none;position:relative}
+.form-msg.success{color:var(--accent2);display:block}
+.form-msg.error{color:var(--accent4);display:block}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:800px;margin:0 auto;align-items:start}
+.contact-info h3{font-size:1.2rem;margin-bottom:16px}
+.contact-info p{color:var(--text-secondary);font-size:.9rem;margin-bottom:20px;line-height:1.7}
+.contact-info .info-item{display:flex;align-items:center;gap:12px;margin-bottom:14px;color:var(--text-secondary);font-size:.88rem}
+.contact-info .info-item i{color:var(--accent1);width:20px}
+.contact-form{display:flex;flex-direction:column;gap:14px}
+.contact-form input,.contact-form textarea{padding:14px 18px;border-radius:11px;border:1px solid var(--card-border);background:var(--card-bg);color:var(--text-primary);font-size:.9rem;outline:none;font-family:inherit;transition:border-color .3s}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--accent1)}
+.contact-form textarea{resize:vertical;min-height:120px}
+
+/* Countdown */
+.countdown{display:flex;gap:16px;justify-content:center;margin:24px 0}
+.countdown-item{text-align:center}
+.countdown-item .num{font-size:2rem;font-weight:800;display:block}
+.countdown-item .label{font-size:.7rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px}
+
+/* Footer */
+footer{background:var(--bg-secondary);padding:60px 0 28px;border-top:1px solid var(--card-border);position:relative;z-index:1}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px}
+.footer-brand p{color:var(--text-secondary);font-size:.83rem;margin-top:12px;max-width:280px;line-height:1.7}
+.footer-col h4{margin-bottom:16px;font-size:.8rem;color:var(--text-primary);text-transform:uppercase;letter-spacing:1.2px}
+.footer-col a{display:block;color:var(--text-secondary);text-decoration:none;font-size:.83rem;margin-bottom:10px;transition:all .3s}
+.footer-col a:hover{color:var(--accent2);transform:translateX(3px)}
+.footer-socials{display:flex;gap:10px;margin-top:18px}
+.footer-socials a{width:38px;height:38px;border-radius:10px;border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all .3s;text-decoration:none}
+.footer-socials a:hover{border-color:var(--accent1);color:var(--accent1);background:rgba(124,58,237,0.06);transform:translateY(-2px)}
+.footer-bottom{border-top:1px solid var(--card-border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom p{color:var(--text-secondary);font-size:.75rem}
+.back-to-top{position:fixed;bottom:80px;right:24px;width:44px;height:44px;border-radius:12px;background:var(--gradient);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;opacity:0;visibility:hidden;transition:all .3s;z-index:99;box-shadow:0 4px 18px var(--glow-purple)}
+.back-to-top.visible{opacity:1;visibility:visible}
+.back-to-top:hover{transform:translateY(-3px)}
+
+/* Confetti Canvas */
+#confettiCanvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999}
+
+/* Animations */
+.fade-up{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.25,.8,.25,1)}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.stagger-1{transition-delay:.1s}
+.stagger-2{transition-delay:.2s}
+.stagger-3{transition-delay:.3s}
+.stagger-4{transition-delay:.4s}
+
+/* Responsive */
+@media(max-width:768px){
+.nav-links{display:none}
+.hamburger{display:flex}
+.mobile-menu{display:block}
+.hero h1{font-size:2.3rem}
+.steps{gap:32px}
+.footer-grid{grid-template-columns:1fr 1fr}
+.newsletter{padding:44px 22px}
+.pricing-grid{grid-template-columns:1fr}
+.contact-grid{grid-template-columns:1fr}
+.cursor,.cursor-dot{display:none}
+body{cursor:auto}
+.sticky-cta p{font-size:.8rem}
+}
+@media(max-width:480px){
+.footer-grid{grid-template-columns:1fr}
+.hero-btns{flex-direction:column;align-items:center}
+.stats-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head><body>
+<!-- Preloader -->
+<div class="preloader" id="preloader"><div class="preloader-logo"><span>Ai</span>levated</div></div>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Noise Overlay -->
+<div class="noise"></div>
+
+<!-- Particle Canvas -->
+<canvas id="particleCanvas"></canvas>
+
+<!-- Confetti Canvas -->
+<canvas id="confettiCanvas"></canvas>
+
+<!-- Toast Container -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- Search Modal -->
+<div class="search-modal" id="searchModal" onclick="if(event.target===this)closeSearch()">
+<div class="search-box">
+<input type="text" placeholder="Search tools, prompts, articles..." id="searchInput" oninput="handleSearch(this.value)" autocomplete="off">
+<div class="search-results" id="searchResults"></div>
+<div class="search-hint"><kbd>/</kbd> to open &nbsp; <kbd>Esc</kbd> to close</div>
+</div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar">
+<div class="nav-container">
+<a href="#" class="logo"><span>Ai</span>levated</a>
+<ul class="nav-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#pillars">Features</a></li>
+<li><a href="#tools">Tools</a></li>
+<li><a href="#prompts">Prompts</a></li>
+<li><a href="#blog">Blog</a></li>
+<li><a href="#pricing">Pricing</a></li>
+</ul>
+<div class="nav-right">
+<button class="search-toggle" onclick="openSearch()" aria-label="Search"><i class="fas fa-search"></i></button>
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+<a href="#newsletter" class="nav-cta">Subscribe &rarr;</a>
+<div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</div>
+</div>
+</nav>
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+<div class="mobile-menu" id="mobileMenu">
+<a href="#home" onclick="toggleMenu()">Home</a>
+<a href="#pillars" onclick="toggleMenu()">Features</a>
+<a href="#tools" onclick="toggleMenu()">Tools</a>
+<a href="#prompts" onclick="toggleMenu()">Prompts</a>
+<a href="#blog" onclick="toggleMenu()">Blog</a>
+<a href="#pricing" onclick="toggleMenu()">Pricing</a>
+<a href="#newsletter" onclick="toggleMenu()">Subscribe</a>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="home">
+<div class="hero-content fade-up">
+<div class="hero-badge"><i class="fas fa-bolt"></i> Powered by AI. Built for Humans.</div>
+<h1>Elevate Your Mind.<br><span class="gradient-text typewriter" id="typewriter"></span></h1>
+<p>Your daily command center for AI tools, smart prompts, automation workflows, and cutting-edge insights — everything you need to work 10x smarter.</p>
+<div class="hero-btns">
+<a href="#tools" class="btn-primary"><i class="fas fa-rocket"></i> Explore Tools</a>
+<a href="#newsletter" class="btn-outline"><i class="fas fa-envelope"></i> Subscribe Free</a>
+</div>
+<div class="social-proof">
+<div class="avatar-stack"><div>S</div><div>J</div><div>M</div><div>A</div><div>+</div></div>
+<p>Join <strong>10,000+</strong> AI-powered professionals</p>
+</div>
+</div>
+<div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
+</section>
+
+<!-- Pillars -->
+<section class="section" id="pillars">
+<div class="container">
+<div class="section-title fade-up">
+<h2>What You'll Find <span class="gradient-text">Here</span></h2>
+<p>Everything you need to stay ahead in the AI revolution</p><div class="section-divider"></div>
+</div>
+<div class="pillars-grid">
+<div class="pillar-card fade-up stagger-1" data-tilt>
+<div class="icon">&#129302;</div><h3>AI Tools & Prompts</h3>
+<p>Curated tools, prompt libraries, and workflow templates you can copy-paste and use immediately.</p>
+</div>
+<div class="pillar-card fade-up stagger-2" data-tilt>
+<div class="icon">&#9889;</div><h3>Productivity & Automation</h3>
+<p>Systems, shortcuts, and AI-powered automations designed to reclaim hours of your time daily.</p>
+</div>
+<div class="pillar-card fade-up stagger-3" data-tilt>
+<div class="icon">&#128200;</div><h3>AI News & Trends</h3>
+<p>Bite-sized daily updates on the latest breakthroughs in artificial intelligence and innovation.</p>
+</div>
+<div class="pillar-card fade-up stagger-4" data-tilt>
+<div class="icon">&#127919;</div><h3>Daily Actionable Tips</h3>
+<p>One powerful tip every single day — implement in under 5 minutes for instant results.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Tool of the Day -->
+<section class="section" style="padding-top:0">
+<div class="container">
+<div class="section-title fade-up">
+<h2>&#127942; Tool of the <span class="gradient-text-2">Day</span></h2>
+<p>Today's top pick — refreshes every 24 hours</p><div class="section-divider"></div>
+</div>
+<div class="tool-card fade-up" style="max-width:500px;margin:0 auto;border-color:rgba(247,37,133,0.2);padding:36px">
+<div class="badge hot">&#128293; HOT TODAY</div>
+<div class="tool-header"><div class="tool-icon productivity"><i class="fas fa-wand-magic-sparkles"></i></div><div class="tool-name"><h4>MindFlow AI</h4><span class="productivity">Productivity</span></div></div>
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<p>The #1 AI-powered second brain. Automatically organizes your notes, generates summaries, and connects ideas across all your documents.</p>
+<div class="countdown" id="toolCountdown"></div>
+<div class="tool-actions"><a href="#" class="tool-link">Try It Free <i class="fas fa-arrow-right"></i></a><button class="bookmark-btn" onclick="toggleBookmark(this)"><i class="far fa-heart"></i></button></div>
+</div>
+</div>
+</section>
+
+<!-- Tools -->
+<section class="section" id="tools">
+<div class="container">
+<div class="section-title fade-up">
+<h2>Top AI Tools <span class="gradient-text-3">This Week</span></h2>
+<p>Handpicked tools to transform your workflow</p><div class="section-divider"></div>
+</div>
+<div class="filter-tabs fade-up">
+<button class="filter-tab active" onclick="filterTools('all')">All</button>
+<button class="filter-tab" onclick="filterTools('writing')">Writing</button>
+<button class="filter-tab" onclick="filterTools('design')">Design</button>
+<button class="filter-tab" onclick="filterTools('code')">Code</button>
+<button class="filter-tab" onclick="filterTools('marketing')">Marketing</button>
+<button class="filter-tab" onclick="filterTools('productivity')">Productivity</button>
+</div>
+<div class="tools-grid">
+<div class="tool-card fade-up" data-category="writing" data-tilt><div class="badge new">NEW</div>
+<div class="tool-header"><div class="tool-icon writing"><i class="fas fa-pen-fancy"></i></div><div class="tool-name"><h4>WriterAI Pro</h4><span class="writing">Writing</span></div></div>
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+<p>Generate blog posts, emails, and social content in seconds with context-aware AI.</p>
+<div class="tool-actions"><a href="#" class="tool-link">Try It <i class="fas fa-arrow-right"></i></a><button class="bookmark-btn" onclick="toggleBookmark(this)"><i class="far fa-heart"></i></button></div>
+</div>
+<div class="tool-card fade-up" data-category="design" data-tilt><div class="badge trending">TRENDING</div>
+<div class="tool-header"><div class="tool-icon design"><i class="fas fa-palette"></i></div><div class="tool-name"><h4>DesignMate AI</h4><span class="design">Design</span></div></div>
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<p>Create stunning graphics, brand kits, and social visuals using AI-powered design.</p>
+<div class="tool-actions"><a href="#" class="tool-link">Try It <i class="fas fa-arrow-right"></i></a><button class="bookmark-btn" onclick="toggleBookmark(this)"><i class="far fa-heart"></i></button></div>
+</div>
+<div class="tool-card fade-up" data-category="code" data-tilt>
+<div class="tool-header"><div class="tool-icon code"><i class="fas fa-code"></i></div><div class="tool-name"><h4>CodePilot X</h4><span class="code">Code</span></div></div>
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+<p>AI pair programming that writes, debugs, and optimizes code across 50+ languages.</p>
+<div class="tool-actions"><a href="#" class="tool-link">Try It <i class="fas fa-arrow-right"></i></a><button class="bookmark-btn" onclick="toggleBookmark(this)"><i class="far fa-heart"></i></button></div>
+</div>
+<div class="tool-card fade-up" data-category="marketing" data-tilt>
+<div class="tool-header"><div class="tool-icon marketing"><i class="fas fa-bullhorn"></i></div><div class="tool-name"><h4>AdGenius AI</h4><span class="marketing">Marketing</span></div></div>
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+<p>Generate high-converting ad copy, landing pages, and campaigns in minutes.</p>
+<div class="tool-actions"><a href="#" class="tool-link">Try It <i class="fas fa-arrow-right"></i></a><button class="bookmark-btn" onclick="toggleBookmark(this)"><i class="far fa-heart"></i></button></div>
+</div>
+<div class="tool-card fade-up" data-category="productivity" data-tilt><div class="badge new">NEW</div>
+<div class="tool-header"><div class="tool-icon productivity"><i class="fas fa-brain"></i></div><div class="tool-name"><h4>FlowState AI</h4><span class="productivity">Productivity</span></div></div>
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<p>Smart task management that learns your habits and automates scheduling.</p>
+<div class="tool-actions"><a href="#" class="tool-link">Try It <i class="fas fa-arrow-right"></i></a><button class="bookmark-btn" onclick="toggleBookmark(this)"><i class="far fa-heart"></i></button></div>
+</div>
+<div class="tool-card fade-up" data-category="writing" data-tilt>
+<div class="tool-header"><div class="tool-icon writing"><i class="fas fa-envelope-open-text"></i></div><div class="tool-name"><h4>EmailCraft AI</h4><span class="writing">Writing</span></div></div>
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+<p>Write perfect cold emails, follow-ups, and newsletters matching your tone.</p>
+<div class="tool-actions"><a href="#" class="tool-link">Try It <i class="fas fa-arrow-right"></i></a><button class="bookmark-btn" onclick="toggleBookmark(this)"><i class="far fa-heart"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Prompts Library -->
+<section class="section" id="prompts">
+<div class="container">
+<div class="section-title fade-up">
+<h2>Prompt <span class="gradient-text">Library</span></h2>
+<p>Copy-paste ready prompts for instant results</p><div class="section-divider"></div>
+</div>
+<div class="prompts-grid">
+<div class="prompt-card fade-up">
+<div class="prompt-header"><h4>Blog Post Generator</h4><span class="prompt-tag">Writing</span></div>
+<div class="prompt-text">Write a 1500-word SEO blog post about [TOPIC]. Include an engaging hook, 5 subheadings with H2 tags, actionable tips, and a compelling conclusion with a CTA.</div>
+<button class="copy-btn" onclick="copyPrompt(this)"><i class="fas fa-copy"></i> Copy Prompt</button>
+</div>
+<div class="prompt-card fade-up">
+<div class="prompt-header"><h4>Email Subject Lines</h4><span class="prompt-tag">Marketing</span></div>
+<div class="prompt-text">Generate 10 high-converting email subject lines for [PRODUCT/SERVICE]. Use curiosity, urgency, and personalization. Keep under 50 characters each.</div>
+<button class="copy-btn" onclick="copyPrompt(this)"><i class="fas fa-copy"></i> Copy Prompt</button>
+</div>
+<div class="prompt-card fade-up">
+<div class="prompt-header"><h4>Code Review Assistant</h4><span class="prompt-tag">Development</span></div>
+<div class="prompt-text">Review the following code for bugs, performance issues, and best practices. Suggest improvements with code examples. Code: [PASTE CODE]</div>
+<button class="copy-btn" onclick="copyPrompt(this)"><i class="fas fa-copy"></i> Copy Prompt</button>
+</div>
+<div class="prompt-card fade-up">
+<div class="prompt-header"><h4>Social Media Hook</h4><span class="prompt-tag">Content</span></div>
+<div class="prompt-text">Write 5 scroll-stopping hooks for a [PLATFORM] post about [TOPIC]. Each hook should create curiosity and be under 15 words. Make them controversial yet professional.</div>
+<button class="copy-btn" onclick="copyPrompt(this)"><i class="fas fa-copy"></i> Copy Prompt</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Blog -->
+<section class="section" id="blog">
+<div class="container">
+<div class="section-title fade-up">
+<h2>Latest from <span class="gradient-text-2">Ailevated</span></h2>
+<p>Fresh insights and strategies delivered daily</p><div class="section-divider"></div>
+</div>
+<div class="blog-grid">
+<div class="blog-card fade-up">
+<div class="blog-img" style="background:linear-gradient(135deg,#7c3aed,#06d6a0)"><span class="category">Productivity</span><span class="read-time">5 min</span></div>
+<div class="blog-content">
+<h3>10 AI Automations That Save 5+ Hours Per Week</h3>
+<p class="excerpt">Discover the exact workflows top performers use to automate repetitive tasks and focus on high-impact work.</p>
+<div class="card-footer"><span class="meta-row">Jun 28, 2025</span><button class="share-btn" onclick="shareArticle('10 AI Automations')"><i class="fas fa-share-alt"></i></button></div>
+</div>
+</div>
+<div class="blog-card fade-up">
+<div class="blog-img" style="background:linear-gradient(135deg,#00b4d8,#7c3aed)"><span class="category">Tools</span><span class="read-time">4 min</span></div>
+<div class="blog-content">
+<h3>The Best Free AI Tools You're Not Using Yet</h3>
+<p class="excerpt">A curated list of powerful free AI tools that most people overlook but should integrate daily.</p>
+<div class="card-footer"><span class="meta-row">Jun 27, 2025</span><button class="share-btn" onclick="shareArticle('Best Free AI Tools')"><i class="fas fa-share-alt"></i></button></div>
+</div>
+</div>
+<div class="blog-card fade-up">
+<div class="blog-img" style="background:linear-gradient(135deg,#f72585,#7c3aed)"><span class="category">Prompts</span><span class="read-time">6 min</span></div>
+<div class="blog-content">
+<h3>Master ChatGPT: 25 Prompts for 10x Output</h3>
+<p class="excerpt">Copy-paste these battle-tested prompts to get dramatically better results from any AI.</p>
+<div class="card-footer"><span class="meta-row">Jun 26, 2025</span><button class="share-btn" onclick="shareArticle('Master ChatGPT')"><i class="fas fa-share-alt"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Quiz -->
+<section class="section" id="quiz">
+<div class="container">
+<div class="section-title fade-up">
+<h2>Which AI Tool is <span class="gradient-text-3">Right for You?</span></h2>
+<p>Take our 30-second quiz to find your perfect match</p><div class="section-divider"></div>
+</div>
+<div class="quiz-container fade-up" id="quizContainer">
+<div class="quiz-progress" id="quizProgress"><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
+<div id="quizContent">
+<h3 id="quizQuestion">What's your primary goal?</h3>
+<p>Select the option that best describes you</p>
+<div class="quiz-options" id="quizOptions">
+<button class="quiz-option" onclick="selectQuiz(0)">&#9997;&#65039; Create content faster (blogs, emails, social)</button>
+<button class="quiz-option" onclick="selectQuiz(1)">&#127912; Design visuals without hiring a designer</button>
+<button class="quiz-option" onclick="selectQuiz(2)">&#128187; Write & debug code more efficiently</button>
+<button class="quiz-option" onclick="selectQuiz(3)">&#128640; Automate repetitive tasks & save time</button>
+</div>
+</div>
+<div class="quiz-result" id="quizResult">
+<h3>&#127881; Your Perfect AI Tool Match!</h3>
+<div class="result-card"><h4 id="resultTitle"></h4><p id="resultDesc"></p></div>
+<div class="quiz-nav"><button class="btn-primary" onclick="resetQuiz()"><i class="fas fa-redo"></i> Retake Quiz</button></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- How It Works -->
+<section class="section">
+<div class="container">
+<div class="section-title fade-up">
+<h2>How It <span class="gradient-text">Works</span></h2>
+<p>Three simple steps to transform your workflow</p><div class="section-divider"></div>
+</div>
+<div class="steps">
+<div class="step fade-up stagger-1"><div class="step-num">&#128236;</div><h3>Subscribe</h3><p>Get daily AI tips delivered to your inbox — free forever.</p></div>
+<div class="step fade-up stagger-2"><div class="step-num">&#129504;</div><h3>Learn</h3><p>Discover new tools, prompts, and workflows curated by experts.</p></div>
+<div class="step fade-up stagger-3"><div class="step-num">&#128640;</div><h3>Implement</h3><p>Apply what you learn and see measurable results immediately.</p></div>
+</div>
+</div>
+</section>
+
+<!-- Stats -->
+<section class="section stats-section">
+<div class="container">
+<div class="stats-grid fade-up">
+<div class="stat"><h3 class="gradient-text counter" data-target="500">0</h3><p>AI Tools Reviewed</p></div>
+<div class="stat"><h3 class="gradient-text-3 counter" data-target="10000">0</h3><p>Community Members</p></div>
+<div class="stat"><h3 class="gradient-text-2 counter" data-target="365">0</h3><p>Daily Tips Published</p></div>
+<div class="stat"><h3 class="gradient-text counter" data-target="50">0</h3><p>Workflow Templates</p></div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="section">
+<div class="container">
+<div class="section-title fade-up"><h2>What Our Community <span class="gradient-text-3">Says</span></h2><p>Trusted by thousands worldwide</p><div class="section-divider"></div></div>
+<div class="testimonials-grid">
+<div class="testimonial-card fade-up stagger-1"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="quote">"Ailevated completely transformed how I work. I save at least 3 hours every day using their recommended tools and prompts."</p><div class="author"><div class="author-avatar" style="background:linear-gradient(135deg,#7c3aed,#06d6a0)"></div><div class="author-info"><h4>Sarah K.</h4><p>Marketing Manager</p></div></div></div>
+<div class="testimonial-card fade-up stagger-2"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="quote">"The daily tips are pure gold. Short, actionable, and always relevant. The only newsletter I read every single morning."</p><div class="author"><div class="author-avatar" style="background:linear-gradient(135deg,#00b4d8,#06d6a0)"></div><div class="author-info"><h4>James R.</h4><p>Freelance Developer</p></div></div></div>
+<div class="testimonial-card fade-up stagger-3"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><p class="quote">"Went from AI-curious to AI-powered in two weeks. The automation workflows alone saved my business thousands."</p><div class="author"><div class="author-avatar" style="background:linear-gradient(135deg,#f72585,#7c3aed)"></div><div class="author-info"><h4>Maria L.</h4><p>Content Creator & CEO</p></div></div></div>
+</div></div>
+</section>
+
+<!-- Pricing -->
+<section class="section" id="pricing">
+<div class="container">
+<div class="section-title fade-up"><h2>Choose Your <span class="gradient-text">Plan</span></h2><p>Start free, upgrade when ready</p><div class="section-divider"></div></div>
+<div class="pricing-grid">
+<div class="pricing-card fade-up"><h3>Starter</h3><div class="price gradient-text">Free</div><p class="price-desc">Perfect to get started</p><ul><li><i class="fas fa-check"></i>Daily AI tips via email</li><li><i class="fas fa-check"></i>Access to blog & articles</li><li><i class="fas fa-check"></i>Weekly tool roundup</li><li><i class="fas fa-check"></i>Community access</li><li><i class="fas fa-check"></i>5 prompt templates/month</li></ul><a href="#newsletter" class="btn-price secondary">Get Started Free</a></div>
+<div class="pricing-card featured fade-up"><h3>Pro</h3><div class="price gradient-text">$9<span>/month</span></div><p class="price-desc">For serious AI power users</p><ul><li><i class="fas fa-check"></i>Everything in Starter</li><li><i class="fas fa-check"></i>Full prompt library (500+)</li><li><i class="fas fa-check"></i>Workflow templates vault</li><li><i class="fas fa-check"></i>Exclusive tool early access</li><li><i class="fas fa-check"></i>Private Discord community</li><li><i class="fas fa-check"></i>Monthly live workshops</li></ul><a href="#" class="btn-price primary">Start Pro Trial</a></div>
+<div class="pricing-card fade-up"><h3>Enterprise</h3><div class="price gradient-text-3">Custom</div><p class="price-desc">For teams & organizations</p><ul><li><i class="fas fa-check"></i>Everything in Pro</li><li><i class="fas fa-check"></i>Custom AI training</li><li><i class="fas fa-check"></i>Team workflow audits</li><li><i class="fas fa-check"></i>Dedicated account manager</li><li><i class="fas fa-check"></i>Priority support</li><li><i class="fas fa-check"></i>Custom integrations</li></ul><a href="#" class="btn-price secondary">Contact Sales</a></div>
+</div></div>
+</section>
+
+<!-- Resources -->
+<section class="section">
+<div class="container">
+<div class="section-title fade-up"><h2>Resource <span class="gradient-text-3">Hub</span></h2><p>Free resources to accelerate your AI journey</p><div class="section-divider"></div></div>
+<div class="resources-grid">
+<a href="#" class="resource-card fade-up"><div class="res-icon" style="background:rgba(124,58,237,0.08)">&#128218;</div><h3>Prompt Library</h3><p>500+ ready-to-use prompts organized by category.</p></a>
+<a href="#" class="resource-card fade-up"><div class="res-icon" style="background:rgba(6,214,160,0.08)">&#9881;&#65039;</div><h3>Workflow Templates</h3><p>Pre-built automation blueprints for every team.</p></a>
+<a href="#" class="resource-card fade-up"><div class="res-icon" style="background:rgba(0,180,216,0.08)">&#127891;</div><h3>AI Crash Course</h3><p>Beginner to power user in 7 days — free.</p></a>
+<a href="#" class="resource-card fade-up"><div class="res-icon" style="background:rgba(247,37,133,0.08)">&#128240;</div><h3>Tool Directory</h3><p>500+ AI tools reviewed and rated by community.</p></a>
+</div></div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+<div class="container">
+<div class="section-title fade-up"><h2>Frequently Asked <span class="gradient-text-2">Questions</span></h2><p>Everything you need to know</p><div class="section-divider"></div></div>
+<div class="faq-list fade-up">
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What is Ailevated? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">Ailevated is your daily source for AI tools, prompts, automation workflows, and productivity tips. We help creators, professionals, and entrepreneurs leverage AI to work 10x smarter.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is the newsletter really free? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">Yes! Our daily newsletter is 100% free forever. One actionable AI tip every morning. No credit card required, unsubscribe anytime with one click.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Who is Ailevated for? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">Anyone who wants to leverage AI — solopreneurs, content creators, marketers, developers, freelancers, and professionals looking to boost productivity and stay ahead.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How often is new content published? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">Daily! Fresh AI tips every day plus in-depth blog articles multiple times per week. Tool reviews and prompt updates weekly.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I cancel Pro anytime? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">Absolutely. Cancel with one click, no questions asked. You keep access until the end of your billing period.</div></div>
+</div></div>
+</section>
+
+<!-- Newsletter -->
+<section class="section" id="newsletter">
+<div class="container">
+<div class="newsletter fade-up">
+<h2>Get Smarter About AI —<br><span class="gradient-text">Every Single Day.</span></h2>
+<p>Join thousands getting one actionable AI tip daily. Free forever. No BS.</p>
+<form class="newsletter-form" id="newsletterForm" onsubmit="handleSubscribe(event)">
+<input type="email" placeholder="Enter your best email" id="emailInput" required>
+<button type="submit"><i class="fas fa-paper-plane"></i> Subscribe</button>
+</form>
+<p class="privacy">&#128274; No spam. Unsubscribe anytime.</p>
+<p class="form-msg" id="formMsg"></p>
+</div></div>
+</section>
+
+<!-- Contact -->
+<section class="section" id="contact">
+<div class="container">
+<div class="section-title fade-up"><h2>Get In <span class="gradient-text">Touch</span></h2><p>We'd love to hear from you</p><div class="section-divider"></div></div>
+<div class="contact-grid fade-up">
+<div class="contact-info">
+<h3>Let's Connect</h3>
+<p>Have a question, suggestion, or partnership idea? Drop us a message and we'll get back within 24 hours.</p>
+<div class="info-item"><i class="fas fa-envelope"></i> hello@ailevated.com</div>
+<div class="info-item"><i class="fas fa-map-marker-alt"></i> Available Worldwide (Remote)</div>
+<div class="info-item"><i class="fas fa-clock"></i> Response within 24 hours</div>
+</div>
+<form class="contact-form" onsubmit="handleContact(event)">
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<input type="text" placeholder="Subject">
+<textarea placeholder="Your Message..." required></textarea>
+<button type="submit" class="btn-primary" style="width:100%;justify-content:center"><i class="fas fa-paper-plane"></i> Send Message</button>
+</form>
+</div></div>
+</section>
+
+<!-- Footer -->
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand"><a href="#" class="logo"><span>Ai</span>levated</a><p>Empowering professionals to work smarter with AI. Daily tools, tips, and workflows for the future.</p>
+<div class="footer-socials"><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-tiktok"></i></a><a href="#"><i class="fab fa-discord"></i></a></div></div>
+<div class="footer-col"><h4>Navigate</h4><a href="#home">Home</a><a href="#pillars">Features</a><a href="#tools">Tools</a><a href="#prompts">Prompts</a><a href="#blog">Blog</a><a href="#pricing">Pricing</a></div>
+<div class="footer-col"><h4>Resources</h4><a href="#">Prompt Library</a><a href="#">Workflows</a><a href="#">AI Directory</a><a href="#">Crash Course</a><a href="#">Newsletter</a></div>
+<div class="footer-col"><h4>Company</h4><a href="#contact">Contact</a><a href="#">About Us</a><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Affiliate Program</a></div>
+</div>
+<div class="footer-bottom"><p>&copy; 2025 Ailevated. All rights reserved. Made with &#129302;+&#9889;</p><p>Elevate Your Mind. Elevate Your Work.</p></div>
+</div>
+</footer>
+<a href="#home" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+<!-- Sticky CTA Bar -->
+<div class="sticky-cta" id="stickyCta"><p>&#9889; Get smarter about AI — daily tips in your inbox</p><button onclick="document.getElementById('newsletter').scrollIntoView({behavior:'smooth'})">Subscribe Free</button></div>
+
+<!-- Cookie Banner -->
+<div class="cookie-banner" id="cookieBanner"><p>&#127850; We use cookies to enhance your experience. By continuing, you agree to our use of cookies.</p><button onclick="acceptCookies()">Accept All</button></div>
+
+<!-- Exit Popup -->
+<div class="exit-popup" id="exitPopup">
+<div class="exit-popup-content">
+<button class="exit-popup-close" onclick="closeExitPopup()">&times;</button>
+<h3>&#128075; Wait! Before you go...</h3>
+<p>Get our top 10 AI prompts that save professionals 5+ hours per week. Completely free.</p>
+<form onsubmit="handleExitSubscribe(event)">
+<input type="email" placeholder="Your email" style="width:100%;padding:14px;border-radius:10px;border:1px solid var(--card-border);background:var(--card-bg);color:var(--text-primary);margin-bottom:12px;font-size:.9rem;outline:none" required>
+<button type="submit" class="btn-primary" style="width:100%;justify-content:center">Get Free Prompts &rarr;</button>
+</form>
+</div>
+</div>
+
+<!-- Daily Tip -->
+<div class="daily-tip" id="dailyTip">
+<button class="close-tip" onclick="closeDailyTip()">&times;</button>
+<h4>&#128161; Tip of the Day</h4>
+<p>Use "Act as [role]" at the start of every AI prompt to get 3x better results. Example: "Act as a senior copywriter with 10 years of experience..."</p>
+</div>
+<script>
+// ===== PRELOADER =====
+window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('preloader').classList.add('hidden'),800)});
+
+// ===== CUSTOM CURSOR =====
+const cursor=document.getElementById('cursor'),cursorDot=document.getElementById('cursorDot');
+let mouseX=0,mouseY=0,curX=0,curY=0;
+document.addEventListener('mousemove',e=>{mouseX=e.clientX;mouseY=e.clientY;cursorDot.style.left=e.clientX+'px';cursorDot.style.top=e.clientY+'px'});
+function animateCursor(){curX+=(mouseX-curX)*0.12;curY+=(mouseY-curY)*0.12;cursor.style.left=curX+'px';cursor.style.top=curY+'px';requestAnimationFrame(animateCursor)}animateCursor();
+document.querySelectorAll('a,button,.tool-card,.pillar-card,.blog-card,.pricing-card').forEach(el=>{el.addEventListener('mouseenter',()=>cursor.classList.add('hover'));el.addEventListener('mouseleave',()=>cursor.classList.remove('hover'))});
+
+// ===== SCROLL PROGRESS =====
+window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-window.innerHeight;document.getElementById('scrollProgress').style.width=(s/h*100)+'%'});
+
+// ===== THEME TOGGLE =====
+function toggleTheme(){const html=document.documentElement;const curr=html.getAttribute('data-theme');const next=curr==='dark'?'light':'dark';html.setAttribute('data-theme',next);document.getElementById('themeToggle').innerHTML=next==='dark'?'<i class="fas fa-moon"></i>':'<i class="fas fa-sun"></i>';localStorage.setItem('theme',next);showToast(next==='dark'?'Dark mode activated':'Light mode activated','info')}
+const saved=localStorage.getItem('theme');if(saved){document.documentElement.setAttribute('data-theme',saved);if(saved==='light')document.getElementById('themeToggle').innerHTML='<i class="fas fa-sun"></i>'}
+
+// ===== MOBILE MENU =====
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('active');document.getElementById('overlay').classList.toggle('active')}
+
+// ===== SEARCH =====
+const searchData=[{t:'WriterAI Pro',c:'writing',u:'#tools'},{t:'DesignMate AI',c:'design',u:'#tools'},{t:'CodePilot X',c:'code',u:'#tools'},{t:'AdGenius AI',c:'marketing',u:'#tools'},{t:'FlowState AI',c:'productivity',u:'#tools'},{t:'EmailCraft AI',c:'writing',u:'#tools'},{t:'Blog Post Generator',c:'prompt',u:'#prompts'},{t:'Email Subject Lines',c:'prompt',u:'#prompts'},{t:'Code Review Assistant',c:'prompt',u:'#prompts'},{t:'10 AI Automations',c:'blog',u:'#blog'},{t:'Best Free AI Tools',c:'blog',u:'#blog'},{t:'Master ChatGPT Prompts',c:'blog',u:'#blog'},{t:'Pricing Plans',c:'page',u:'#pricing'},{t:'FAQ',c:'page',u:'#faq'},{t:'Newsletter',c:'page',u:'#newsletter'}];
+function openSearch(){document.getElementById('searchModal').classList.add('active');document.getElementById('searchInput').focus()}
+function closeSearch(){document.getElementById('searchModal').classList.remove('active');document.getElementById('searchInput').value='';document.getElementById('searchResults').innerHTML=''}
+function handleSearch(q){const r=document.getElementById('searchResults');if(!q.trim()){r.innerHTML='';return}const f=searchData.filter(i=>i.t.toLowerCase().includes(q.toLowerCase()));if(f.length)r.innerHTML=f.map(i=>`<a href="${i.u}" onclick="closeSearch()">${i.t} <small style="color:var(--text-secondary)">${i.c}</small></a>`).join('');else r.innerHTML='<div class="no-results">No results found</div>'}
+
+// ===== KEYBOARD SHORTCUTS =====
+document.addEventListener('keydown',e=>{if(e.key==='/'&&!e.target.matches('input,textarea')){e.preventDefault();openSearch()}if(e.key==='Escape')closeSearch();if(e.key==='d'&&!e.target.matches('input,textarea'))toggleTheme()});
+
+// ===== NAVBAR SCROLL =====
+window.addEventListener('scroll',()=>{const nav=document.querySelector('.navbar'),btt=document.getElementById('backToTop'),sticky=document.getElementById('stickyCta');const y=window.scrollY;if(y>60)nav.classList.add('scrolled');else nav.classList.remove('scrolled');if(y>600){btt.classList.add('visible');sticky.classList.add('visible')}else{btt.classList.remove('visible');sticky.classList.remove('visible')}});
+
+// ===== SCROLL ANIMATIONS =====
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.08,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+// ===== 3D TILT =====
+document.querySelectorAll('[data-tilt]').forEach(card=>{card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;card.style.transform=`perspective(800px) rotateY(${x*8}deg) rotateX(${-y*8}deg) translateY(-4px)`;});card.addEventListener('mouseleave',()=>{card.style.transform=''})});
+
+// ===== COUNTER =====
+const cObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const el=e.target,target=+el.dataset.target,dur=2200,start=performance.now();function tick(now){const p=Math.min((now-start)/dur,1);el.textContent=Math.floor((1-Math.pow(1-p,4))*target).toLocaleString()+'+';if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick);cObs.unobserve(el)}})},{threshold:0.5});
+document.querySelectorAll('.counter').forEach(el=>cObs.observe(el));
+
+// ===== TYPEWRITER =====
+const words=['Elevate Your Work.','Build With AI.','Automate Everything.','Create Faster.'];
+let wi=0,ci=0,deleting=false;
+function typewrite(){const el=document.getElementById('typewriter');if(!el)return;const word=words[wi];if(!deleting){el.textContent=word.substring(0,ci+1);ci++;if(ci===word.length){deleting=true;setTimeout(typewrite,2000);return}}else{el.textContent=word.substring(0,ci-1);ci--;if(ci===0){deleting=false;wi=(wi+1)%words.length}}setTimeout(typewrite,deleting?40:80)}
+setTimeout(typewrite,1000);
+
+// ===== TOOL FILTERING =====
+function filterTools(cat){document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));event.target.classList.add('active');document.querySelectorAll('.tool-card').forEach(card=>{if(cat==='all'||card.dataset.category===cat){card.style.display='block';card.style.opacity='0';setTimeout(()=>card.style.opacity='1',50)}else card.style.display='none'})}
+
+// ===== BOOKMARK =====
+function toggleBookmark(btn){btn.classList.toggle('active');const icon=btn.querySelector('i');if(btn.classList.contains('active')){icon.className='fas fa-heart';showToast('Added to favorites!','success')}else{icon.className='far fa-heart';showToast('Removed from favorites','info')}}
+
+// ===== COPY PROMPT =====
+function copyPrompt(btn){const text=btn.parentElement.querySelector('.prompt-text').textContent;function onCopied(){btn.innerHTML='<i class="fas fa-check"></i> Copied!';btn.classList.add('copied');showToast('Prompt copied to clipboard!','success');setTimeout(()=>{btn.innerHTML='<i class="fas fa-copy"></i> Copy Prompt';btn.classList.remove('copied')},2000)}function fallbackCopy(){const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();let ok=false;try{ok=document.execCommand('copy')}catch(err){ok=false}document.body.removeChild(ta);if(ok)onCopied();else showToast('Could not copy — select the text manually','info')}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(onCopied).catch(fallbackCopy)}else{fallbackCopy()}}
+
+// ===== SHARE =====
+function shareArticle(title){if(navigator.share){navigator.share({title,url:window.location.href}).catch(()=>{})}else if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(window.location.href).then(()=>showToast('Link copied to clipboard!','success')).catch(()=>showToast('Could not copy link','info'))}else{showToast('Sharing not supported on this browser','info')}}
+
+// ===== TOAST =====
+function showToast(msg,type='info'){const c=document.getElementById('toastContainer');const t=document.createElement('div');t.className='toast '+type;t.innerHTML=`<i class="fas fa-${type==='success'?'check-circle':'info-circle'}"></i> ${msg}`;c.appendChild(t);setTimeout(()=>{t.style.opacity='0';setTimeout(()=>t.remove(),300)},3000)}
+
+// ===== FAQ =====
+function toggleFaq(el){el.parentElement.classList.toggle('active')}
+
+// ===== NEWSLETTER + CONFETTI =====
+function handleSubscribe(e){e.preventDefault();const email=document.getElementById('emailInput').value,msg=document.getElementById('formMsg');if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg.textContent='Please enter a valid email.';msg.className='form-msg error';return}msg.textContent='\u2705 Welcome to Ailevated! Check your inbox.';msg.className='form-msg success';document.getElementById('emailInput').value='';launchConfetti();showToast('Successfully subscribed!','success')}
+
+// ===== CONFETTI =====
+function launchConfetti(){const canvas=document.getElementById('confettiCanvas'),ctx=canvas.getContext('2d');canvas.width=window.innerWidth;canvas.height=window.innerHeight;const pieces=[];const colors=['#7c3aed','#06d6a0','#00b4d8','#f72585','#fbbf24'];for(let i=0;i<150;i++)pieces.push({x:Math.random()*canvas.width,y:-20,r:Math.random()*6+3,c:colors[Math.floor(Math.random()*colors.length)],vx:(Math.random()-0.5)*8,vy:Math.random()*4+3,rot:Math.random()*360,rv:(Math.random()-0.5)*10});let frame=0;function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);pieces.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=0.1;p.rot+=p.rv;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot*Math.PI/180);ctx.fillStyle=p.c;ctx.fillRect(-p.r/2,-p.r/2,p.r,p.r*0.6);ctx.restore()});frame++;if(frame<120)requestAnimationFrame(draw);else ctx.clearRect(0,0,canvas.width,canvas.height)}draw()}
+
+// ===== CONTACT FORM =====
+function handleContact(e){e.preventDefault();showToast('Message sent! We\'ll reply within 24 hours.','success');e.target.reset()}
+
+// ===== EXIT INTENT =====
+function handleExitSubscribe(e){e.preventDefault();closeExitPopup();showToast('Free prompts on their way!','success');launchConfetti()}
+let exitShown=false;
+document.addEventListener('mouseout',e=>{if(!exitShown&&e.clientY<5&&!sessionStorage.getItem('exitShown')){document.getElementById('exitPopup').classList.add('active');exitShown=true;sessionStorage.setItem('exitShown','1')}});
+function closeExitPopup(){document.getElementById('exitPopup').classList.remove('active')}
+
+// ===== COOKIE BANNER =====
+if(!localStorage.getItem('cookiesAccepted'))setTimeout(()=>document.getElementById('cookieBanner').classList.add('visible'),2000);
+function acceptCookies(){document.getElementById('cookieBanner').classList.remove('visible');localStorage.setItem('cookiesAccepted','1');showToast('Preferences saved','info')}
+
+// ===== DAILY TIP =====
+if(!sessionStorage.getItem('tipClosed'))setTimeout(()=>document.getElementById('dailyTip').classList.add('active'),5000);
+function closeDailyTip(){document.getElementById('dailyTip').classList.remove('active');sessionStorage.setItem('tipClosed','1')}
+
+// ===== COUNTDOWN (Tool of Day resets at midnight) =====
+function updateCountdown(){const now=new Date(),end=new Date();end.setHours(24,0,0,0);const diff=end-now;const h=Math.floor(diff/3600000),m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);const el=document.getElementById('toolCountdown');if(el)el.innerHTML=`<div class="countdown-item"><span class="num gradient-text">${h}</span><span class="label">Hours</span></div><div class="countdown-item"><span class="num gradient-text">${m}</span><span class="label">Min</span></div><div class="countdown-item"><span class="num gradient-text">${s}</span><span class="label">Sec</span></div>`}
+updateCountdown();setInterval(updateCountdown,1000);
+
+// ===== QUIZ =====
+const quizData=[{q:"What\'s your primary goal?",opts:["Create content faster","Design visuals","Write & debug code","Automate tasks"]},{q:"What\'s your experience with AI?",opts:["Complete beginner","Used ChatGPT a few times","Regular AI user","Advanced power user"]},{q:"What\'s your biggest challenge?",opts:["Finding the right tools","Writing effective prompts","Building workflows","Keeping up with AI news"]}];
+const quizResults=[{t:"WriterAI Pro",d:"Perfect for content creators. Generates blogs, emails, and social posts in seconds."},{t:"DesignMate AI",d:"Ideal for visual thinkers. Create stunning graphics without design skills."},{t:"CodePilot X",d:"Built for developers. AI pair programming across 50+ languages."},{t:"FlowState AI",d:"Made for productivity lovers. Automates scheduling and task management."}];
+let quizStep=0,quizAnswers=[];
+function selectQuiz(i){quizAnswers.push(i);quizStep++;const dots=document.querySelectorAll('.quiz-progress .dot');dots.forEach((d,idx)=>{d.className='dot'+(idx<quizStep?' done':'')+(idx===quizStep?' active':'')});if(quizStep<quizData.length){document.getElementById('quizQuestion').textContent=quizData[quizStep].q;const opts=document.getElementById('quizOptions');opts.innerHTML=quizData[quizStep].opts.map((o,idx)=>`<button class="quiz-option" onclick="selectQuiz(${idx})">${o}</button>`).join('')}else{const ri=quizAnswers[0]%quizResults.length;document.getElementById('quizContent').style.display='none';document.getElementById('quizResult').style.display='block';document.getElementById('resultTitle').textContent=quizResults[ri].t;document.getElementById('resultDesc').textContent=quizResults[ri].d;showToast('Quiz complete! Here\'s your match.','success')}}
+function resetQuiz(){quizStep=0;quizAnswers=[];document.getElementById('quizContent').style.display='block';document.getElementById('quizResult').style.display='none';document.getElementById('quizQuestion').textContent=quizData[0].q;document.getElementById('quizOptions').innerHTML=quizData[0].opts.map((o,i)=>`<button class="quiz-option" onclick="selectQuiz(${i})">${o}</button>`).join('');document.querySelectorAll('.quiz-progress .dot').forEach((d,i)=>d.className='dot'+(i===0?' active':''))}
+
+// ===== PARTICLE NETWORK BACKGROUND =====
+const pCanvas=document.getElementById('particleCanvas'),pCtx=pCanvas.getContext('2d');
+let pw,ph;function pResize(){pw=pCanvas.width=window.innerWidth;ph=pCanvas.height=window.innerHeight}pResize();window.addEventListener('resize',pResize);
+const pMouse={x:null,y:null};
+document.addEventListener('mousemove',e=>{pMouse.x=e.clientX;pMouse.y=e.clientY});
+
+const NODES=85,CONN_DIST=140,PULSE_MAX=12;
+const pColors=['124,58,237','6,214,160','0,180,216','247,37,133'];
+class PNode{
+constructor(){this.x=Math.random()*pw;this.y=Math.random()*ph;this.vx=(Math.random()-.5)*.35;this.vy=(Math.random()-.5)*.35;this.r=Math.random()*2.2+.6;this.color=pColors[Math.floor(Math.random()*pColors.length)];this.phase=Math.random()*Math.PI*2;this.hub=Math.random()>.75;if(this.hub)this.r=Math.random()*1.5+2.2}
+update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>pw)this.vx*=-1;if(this.y<0||this.y>ph)this.vy*=-1;this.phase+=.02;if(pMouse.x!==null){const dx=this.x-pMouse.x,dy=this.y-pMouse.y,d=Math.sqrt(dx*dx+dy*dy);if(d<180){const f=(180-d)/180*.012;this.vx+=dx*f;this.vy+=dy*f}}const sp=Math.sqrt(this.vx*this.vx+this.vy*this.vy);if(sp>1){this.vx*=.99;this.vy*=.99}}
+draw(){const a=(Math.sin(this.phase)*.3+.7)*(this.hub?.7:.45);if(this.hub){pCtx.beginPath();pCtx.arc(this.x,this.y,this.r*3.5,0,Math.PI*2);const g=pCtx.createRadialGradient(this.x,this.y,0,this.x,this.y,this.r*3.5);g.addColorStop(0,`rgba(${this.color},.12)`);g.addColorStop(1,`rgba(${this.color},0)`);pCtx.fillStyle=g;pCtx.fill()}pCtx.beginPath();pCtx.arc(this.x,this.y,this.r,0,Math.PI*2);pCtx.fillStyle=`rgba(${this.color},${a})`;pCtx.fill();if(this.hub){pCtx.beginPath();pCtx.arc(this.x,this.y,this.r+2.5,0,Math.PI*2);pCtx.strokeStyle=`rgba(${this.color},${a*.25})`;pCtx.lineWidth=.4;pCtx.stroke()}}
+}
+class PPulse{constructor(a,b){this.a=a;this.b=b;this.p=0;this.spd=Math.random()*.012+.007;this.color=pColors[Math.floor(Math.random()*pColors.length)];this.sz=Math.random()*1.8+1.2;this.alive=true}
+update(){this.p+=this.spd;if(this.p>=1)this.alive=false}
+draw(){const x=this.a.x+(this.b.x-this.a.x)*this.p,y=this.a.y+(this.b.y-this.a.y)*this.p;const a=Math.sin(this.p*Math.PI)*.85;pCtx.beginPath();pCtx.arc(x,y,this.sz,0,Math.PI*2);pCtx.fillStyle=`rgba(${this.color},${a})`;pCtx.fill();const g=pCtx.createRadialGradient(x,y,0,x,y,this.sz*2.5);g.addColorStop(0,`rgba(${this.color},${a*.4})`);g.addColorStop(1,`rgba(${this.color},0)`);pCtx.beginPath();pCtx.arc(x,y,this.sz*2.5,0,Math.PI*2);pCtx.fillStyle=g;pCtx.fill()}}
+
+let pNodes=[],pPulses=[];
+for(let i=0;i<NODES;i++)pNodes.push(new PNode());
+
+// Hex grid
+function drawHex(){pCtx.strokeStyle=document.documentElement.getAttribute('data-theme')==='light'?'rgba(124,58,237,0.04)':'rgba(124,58,237,0.025)';pCtx.lineWidth=.4;const sz=55,hx=sz*Math.sqrt(3),hy=sz*1.5;for(let row=-1;row<ph/hy+1;row++)for(let col=-1;col<pw/hx+1;col++){const x=col*hx+(row%2)*hx/2,y=row*hy;pCtx.beginPath();for(let i=0;i<6;i++){const ang=Math.PI/3*i-Math.PI/6;const px=x+sz*.75*Math.cos(ang),py=y+sz*.75*Math.sin(ang);i===0?pCtx.moveTo(px,py):pCtx.lineTo(px,py)}pCtx.closePath();pCtx.stroke()}}
+
+// Scan line
+let scanY=0;
+function drawScan(){scanY+=.25;if(scanY>ph)scanY=0;const g=pCtx.createLinearGradient(0,scanY-15,0,scanY+15);g.addColorStop(0,'rgba(6,214,160,0)');g.addColorStop(.5,'rgba(6,214,160,0.025)');g.addColorStop(1,'rgba(6,214,160,0)');pCtx.fillStyle=g;pCtx.fillRect(0,scanY-15,pw,30)}
+
+function drawConns(){for(let i=0;i<pNodes.length;i++){for(let j=i+1;j<pNodes.length;j++){const dx=pNodes[i].x-pNodes[j].x,dy=pNodes[i].y-pNodes[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<CONN_DIST){const a=(1-d/CONN_DIST)*.1;pCtx.beginPath();if(Math.abs(dx)>Math.abs(dy)*1.5){const mx=(pNodes[i].x+pNodes[j].x)/2;pCtx.moveTo(pNodes[i].x,pNodes[i].y);pCtx.lineTo(mx,pNodes[i].y);pCtx.lineTo(mx,pNodes[j].y);pCtx.lineTo(pNodes[j].x,pNodes[j].y)}else{pCtx.moveTo(pNodes[i].x,pNodes[i].y);pCtx.lineTo(pNodes[j].x,pNodes[j].y)}pCtx.strokeStyle=`rgba(${pNodes[i].color},${a})`;pCtx.lineWidth=.5;pCtx.stroke();if(Math.random()<.00025&&pPulses.length<PULSE_MAX)pPulses.push(new PPulse(pNodes[i],pNodes[j]))}}if(pMouse.x!==null){const dx=pNodes[i].x-pMouse.x,dy=pNodes[i].y-pMouse.y,d=Math.sqrt(dx*dx+dy*dy);if(d<160){const a=(1-d/160)*.2;pCtx.beginPath();pCtx.moveTo(pNodes[i].x,pNodes[i].y);pCtx.lineTo(pMouse.x,pMouse.y);pCtx.strokeStyle=`rgba(124,58,237,${a})`;pCtx.lineWidth=.7;pCtx.stroke()}}}}
+
+function drawMouseGlow(){if(!pMouse.x)return;const g=pCtx.createRadialGradient(pMouse.x,pMouse.y,0,pMouse.x,pMouse.y,100);g.addColorStop(0,'rgba(124,58,237,0.06)');g.addColorStop(.6,'rgba(6,214,160,0.02)');g.addColorStop(1,'rgba(0,0,0,0)');pCtx.beginPath();pCtx.arc(pMouse.x,pMouse.y,100,0,Math.PI*2);pCtx.fillStyle=g;pCtx.fill()}
+
+function pAnimate(){pCtx.clearRect(0,0,pw,ph);drawHex();drawScan();drawConns();pNodes.forEach(n=>{n.update();n.draw()});pPulses=pPulses.filter(p=>p.alive);pPulses.forEach(p=>{p.update();p.draw()});drawMouseGlow();requestAnimationFrame(pAnimate)}
+pAnimate();
+
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded',()=>{document.querySelector('.hero-content').classList.add('visible')});
+</script>
+</body></html>
